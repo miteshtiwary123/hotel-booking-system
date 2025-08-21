@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, JSON
+from sqlalchemy import Column, Integer, String, Float, JSON, Numeric
 from app.models.base import Base
 
 class Property(Base):
@@ -11,4 +11,6 @@ class Property(Base):
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
     amenities = Column(JSON, default=list)
-    
+
+    base_price = Column(Numeric(10, 2), nullable=False, default=100.00)
+    weekend_multiplier = Column(Float, nullable=False, default=1.2)
